@@ -1,0 +1,30 @@
+{
+  "name": "dcb-simple-node-api",
+  "homepage": "https://github.com/TheOneTheOnlyDavidBrown/dcb-simple-node-api",
+  "authors": [
+    "David Brown"
+  ],
+  "description": "Simple Node API for quick spinup",
+  "keywords": [
+    "node",
+    "api"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "_release": "c189209b85",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "c189209b85718fb2860e80ec1494ca018eeb8f86"
+  },
+  "_source": "git://github.com/TheOneTheOnlyDavidBrown/dcb-simple-node-api.git",
+  "_target": "*",
+  "_originalSource": "dcb-simple-node-api",
+  "_direct": true
+}

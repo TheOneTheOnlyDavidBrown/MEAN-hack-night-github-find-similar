@@ -1,0 +1,36 @@
+<md-toolbar>
+  <h1>Github Trending</h1>
+</md-toolbar>
+<form name="searchform">
+  <md-input-container class="md-block" flex-gt-sm>
+    <label>Search for similar repositories to (owner/repo)</label>
+    <input ng-model="search.query">
+  </md-input-container>
+  <md-button class="md-raised" ng-click="search.findSimilar(search.query)">Search</md-button>
+</form>
+
+<div class="container" layout="row" flex>
+  <md-sidenav md-is-locked-open="true" class="md-whiteframe-1dp md-padding">
+    <h4>Watchlist!</h4>
+    <md-list>
+      <md-list-item ng-repeat="item in search.watchlist">
+        <span><a href="javascript:void(0)" ng-click="search.findSimilar(search.query)">{{item.owner}}/{{item.repo}}</a><span> <i class="fa fa-trash" ng-click="search.removeFromWatchlist(item)"></i>
+        </md-list-item>
+    </md-list>
+  </md-sidenav>
+  <md-content flex>
+    <div ng-show="search.results.length == 0">Search for a repo</div>
+    <div ng-show="search.results.length > 0">Search results for {{search.trendingSearchLanguage}}</div>
+    <md-list>
+      <md-list-item class="md-3-line" ng-repeat="item in search.results">
+        <img ng-src="{{item.owner.avatar_url}}" class="md-avatar" alt="{{item.owner.login}}" />
+        <div class="md-list-item-text" layout="column">
+          <h3><i class="fa {{search.fillStar(item) ? 'fa-star' : 'fa-star-o' }}" ng-click=search.toggleStar(item)></i> <a target="_BLANK" href="{{item.html_url}}">{{item.name}}</a> by {{item.owner.login}}</h3>
+          <p>{{ item.description }}</p>
+          <p class="md-subhead">Last updated: {{item.updated_at | date : 'fullDate'}}</p>
+          <p class="md-subhead">{{item.stargazers_count}} are watching this on Github</p>
+        </div>
+      </md-list-item>
+    </md-list>
+  </md-content>
+</div>
