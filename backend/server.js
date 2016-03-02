@@ -7,19 +7,6 @@ var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost:27017/meanhacknight');
 
 var Watchlist = mongoose.model('Watchlist', { owner: String, repo: String });
-// var item = new Watchlist({ owner: 'npm', repo: 'npm'});
-//   item.save(function (err) {
-//     if (err) return handleError(err);
-//     Watchlist.find({}, function(err, items) {
-//       var itemMap = {};
-
-//       items.forEach(function(item) {
-//         itemMap[item._id] = item;
-//       });
-
-//     });
-//   });
-
 
 // configure app to use bodyParser()
 // this will let us get the data from a POST
