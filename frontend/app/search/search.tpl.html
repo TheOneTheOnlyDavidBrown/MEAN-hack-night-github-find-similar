@@ -14,13 +14,13 @@
     <h4>Watchlist!</h4>
     <md-list>
       <md-list-item ng-repeat="item in search.watchlist">
-        <span><a href="javascript:void(0)" ng-click="search.findSimilar(search.query)">{{item.owner}}/{{item.repo}}</a><span> <i class="fa fa-trash" ng-click="search.removeFromWatchlist(item)"></i>
+        <span><a href="javascript:void(0)" ng-click="search.findSimilarSide(item)">{{item.owner}}/{{item.repo}}</a><span> <i class="fa fa-trash" ng-click="search.removeFromWatchlist(item)"></i>
         </md-list-item>
     </md-list>
   </md-sidenav>
   <md-content flex>
     <div ng-show="search.results.length == 0">Search for a repo</div>
-    <div ng-show="search.results.length > 0">Search results for {{search.trendingSearchLanguage}}</div>
+    <div ng-show="search.results.length > 0">Trending projects for language: {{search.trendingSearchLanguage}}</div>
     <md-list>
       <md-list-item class="md-3-line" ng-repeat="item in search.results">
         <img ng-src="{{item.owner.avatar_url}}" class="md-avatar" alt="{{item.owner.login}}" />
