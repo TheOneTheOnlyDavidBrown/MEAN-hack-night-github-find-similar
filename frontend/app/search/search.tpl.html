@@ -11,7 +11,7 @@
 
 <div class="container" layout="row" flex>
   <md-sidenav md-is-locked-open="true" class="md-whiteframe-1dp md-padding">
-    <h4>Watchlist!</h4>
+    <h4>Watchlist</h4>
     <md-list>
       <md-list-item ng-repeat="item in search.watchlist">
         <span><a href="javascript:void(0)" ng-click="search.findSimilarSide(item)">{{item.owner}}/{{item.repo}}</a><span> <i class="fa fa-trash" ng-click="search.removeFromWatchlist(item)"></i>
