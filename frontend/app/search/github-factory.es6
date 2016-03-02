@@ -18,10 +18,18 @@
       return $http.get('http://api.github.com/repos/'+query);
     };
     GithubBase.findTrending = (repo) => {
-      // TODO: DYNAMICALLY DO THIS
-      let day = '23';
-      let month = '02';
-      let year = '2016';
+      let dateObj = new Date();
+      let month = dateObj.getUTCMonth(); //month index starts at 0
+      let day = dateObj.getUTCDate();
+      let year = dateObj.getUTCFullYear();
+
+      // HACK! but it is hack night...
+      if (day < 10){
+        day = '0'+day;
+      }
+      if (month < 10){
+        month = '0'+month;
+      }
 
       return $http.get(`https://api.github.com/search/repositories?q=created:>${year}-${month}-${day}+language:${repo.language}+sort:stars`);
     };
